@@ -116,7 +116,6 @@ h6,
 
 .navbar .navbar-brand {
     position: relative;
-    padding-right: 50px;
     height: 75px;
     display: flex;
     align-items: center;
@@ -183,6 +182,7 @@ h6,
         transition: .5s;
         opacity: 1;
     }
+
 }
 
 
@@ -709,10 +709,16 @@ h6,
 .hideElement {
     display: none!important;
   }
+
   
- 
+
 @media screen and (max-width: 991px) {
-    .display-1{
+    
+    .ps-5 {
+
+        padding-left: 1rem!important;
+            }
+            .display-1{
         font-size: 2rem!important;
     }
 
@@ -725,6 +731,22 @@ h6,
       }
 }
 
+@media screen and (max-width: 750px) {
+    .navbar-brand img {
+        width: 50% !important;  /* ili 50px, zavisno od vaših potreba */
+        height: auto;  /* opcionalno, ako želite da se slika proporcijalno skalira */
+    }
+    .navbar-brand {
+width: 400px!important;    }
+   
+}
+@media screen and (max-width: 510px) {
+ 
+    .navbar-brand {
+width: 300px!important;   
+ }
+   
+
 .custom{
     color: #B0B9AE!important;
 }
@@ -732,4 +754,12 @@ h6,
 .pbt-100{
     padding-top: 100px!important;
     padding-bottom: 100px!important;
+}
+}
+
+@media screen and (max-width: 410px) {
+ 
+    .navbar-brand {
+width: 230px!important;   
+ }
 }
