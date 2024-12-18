@@ -8,13 +8,9 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
 
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
-
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Rubik:wght@500;600;700&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -29,6 +25,9 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <!-- EmailJS Script CDN -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 
 <body>
@@ -61,8 +60,7 @@
     <!-- Navbar End -->
 
  
-
-
+     
     <!-- Contact Start -->
     <div class="container-xxl py-5">
         <div class="container">
@@ -106,37 +104,41 @@
                     tabindex="0"></iframe>
                 </div>
             </div>
+        </div>
+    </div>
+    
+    <!-- Contact Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <p class="fw-medium text-uppercase text-primary mb-2">Neem contact met ons op</p>
                     <h1 class="display-5 mb-4">Als u vragen heeft, neem dan gerust contact met ons op</h1>
-                    <p class="mb-4">Het contactformulier is momenteel inactief. Verkrijg een functioneel en werkend contactformulier met Ajax & PHP in enkele minuten. Kopieer en plak gewoon de bestanden, voeg een beetje code toe en je bent klaar. <a href="https://htmlcodex.com/contact-form">Download nu</a>.</p>
-                     
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <form>
+                    <form id="contact-form">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                    <input type="text" class="form-control" id="name" placeholder="Your Name" required>
                                     <label for="name">Uw Naam</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                    <input type="email" class="form-control" id="email" placeholder="Your Email" required>
                                     <label for="email">Uw E-mail</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
+                                    <input type="text" class="form-control" id="subject" placeholder="Subject" required>
                                     <label for="subject">Onderwerp</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 150px"></textarea>
+                                    <textarea class="form-control" id="message" placeholder="Leave a message here" style="height: 150px" required></textarea>
                                     <label for="message">Bericht</label>
                                 </div>
                             </div>
@@ -145,57 +147,54 @@
                             </div>
                         </div>
                     </form>
+                    <div id="status-message"></div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Contact End -->
-
-    <!-- Footer Start -->
-    <div class="container-fluid bg-dark footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-5 col-md-6">
-                    <h5 class="text-white mb-4">Ons Kantoor</h5>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Graaf Janstraat 2D, 1941KG Beverwijk</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+31 630081309</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@sabicklussen.nl</p>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <h5 class="text-white mb-4">Snelle Links</h5>
-                    <a class="btn btn-link" href="">Startpagina </a>
-                    <a class="btn btn-link" href="">Over Ons</a>
-                    <a class="btn btn-link" href="">Onze Diensten</a>
-                    <a class="btn btn-link" href="">Contacteer Ons</a>
-                </div>                
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="text-white mb-4">Openingstijden</h5>
-                    <p class="mb-1">Maandag - Vrijdag</p>
-                    <h6 class="text-light">09:00 - 19:00</h6>
-                    <p class="mb-1">Zaterdag</p>
-                    <h6 class="text-light">09:00 - 12:00</h6>
-                    <p class="mb-1">Zondag</p>
-                    <h6 class="text-light">Gesloten</h6>
-                </div>
+  <!-- Footer Start -->
+  <div class="container-fluid bg-dark footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-lg-5 col-md-6">
+                <h5 class="text-white mb-4">Ons Kantoor</h5>
+                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Graaf Janstraat 2D, 1941KG Beverwijk</p>
+                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+31 630081309</p>
+                <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@sabicklussen.nl</p>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <h5 class="text-white mb-4">Snelle Links</h5>
+                <a class="btn btn-link" href="">Startpagina </a>
+                <a class="btn btn-link" href="">Over Ons</a>
+                <a class="btn btn-link" href="">Onze Diensten</a>
+                <a class="btn btn-link" href="">Contacteer Ons</a>
+            </div>                
+            <div class="col-lg-3 col-md-6">
+                <h5 class="text-white mb-4">Openingstijden</h5>
+                <p class="mb-1">Maandag - Vrijdag</p>
+                <h6 class="text-light">09:00 - 19:00</h6>
+                <p class="mb-1">Zaterdag</p>
+                <h6 class="text-light">09:00 - 12:00</h6>
+                <p class="mb-1">Zondag</p>
+                <h6 class="text-light">Gesloten</h6>
             </div>
         </div>
     </div>
-    <!-- Footer End -->
+</div>
+<!-- Footer End -->
 
 
-    <!-- Copyright Start -->
-    <div class="container-fluid copyright bg-dark py-4">
-        <div class="container text-center">
-            <p class="mb-2">Copyright &copy; 2024 Gemaakt door <a class="custom" href="#"><b>VivaSol Design</b></a>. Alle rechten voorbehouden.</p>
-        </div>
+<!-- Copyright Start -->
+<div class="container-fluid copyright bg-dark py-4">
+    <div class="container text-center">
+        <p class="mb-2">Copyright &copy; 2024 Gemaakt door <a class="custom" href="#"><b>VivaSol Design</b></a>. Alle rechten voorbehouden.</p>
     </div>
-    <!-- Copyright End -->
-
-
+</div>
+<!-- Copyright End -->
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
-
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -205,6 +204,42 @@
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="lib/counterup/counterup.min.js"></script>
+
+    <script type="text/javascript">
+        // Inicijalizacija EmailJS sa vašim publicKey
+        (function() {
+            console.log("Inicijalizacija EmailJS...");
+            emailjs.init("blpm5ngZjgFmrm7ap");  // Tvoj public key
+        })();
+
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+            event.preventDefault();  // Sprečava refresh stranice pri slanju forme
+
+            console.log("Forma je poslata. Prikupljamo podatke...");
+
+            // Prikupljamo podatke sa forme
+            var params = {
+                from_name: document.getElementById("name").value,
+                from_email: document.getElementById("email").value,
+                subject: document.getElementById("subject").value,
+                message: document.getElementById("message").value,
+                to_email: "melisadzeko@outlook.com"  // Tvoj email
+            };
+
+            console.log("Podaci koje šaljemo: ", params);
+
+            // Pošaljemo podatke preko EmailJS
+            emailjs.send("service_ms96uiq", "template_5n9s26a", params)
+                .then(function(response) {
+                    console.log("Email poslat! Responz: ", response);
+                    document.getElementById("status-message").innerHTML = "<p class='text-success'>Poruka je uspešno poslata!</p>";
+                    document.getElementById("contact-form").reset();
+                }, function(error) {
+                    console.error("Došlo je do greške pri slanju email-a. Greška: ", error);
+                    document.getElementById("status-message").innerHTML = "<p class='text-danger'>Došlo je do greške. Pokušajte ponovo.</p>";
+                });
+        });
+    </script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>

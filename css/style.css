@@ -1,6 +1,6 @@
 /********** Template CSS **********/
 :root {
-    --primary: #FF5E14;
+    --primary: #f8c424;
     --secondary: #5F656F;
     --light: #F5F5F5;
     --dark: #02245B;
@@ -711,7 +711,8 @@ h6,
   }
 
   .navbar-brand img {
-height: 70px;
+height: 50px;
+margin-left: 30px;
   }
 
 @media screen and (max-width: 991px) {
@@ -735,7 +736,7 @@ height: 70px;
 
 @media screen and (max-width: 750px) {
     .navbar-brand img {
-        width: 65% !important;  /* ili 50px, zavisno od vaših potreba */
+        width: 40% !important;  /* ili 50px, zavisno od vaših potreba */
         height: auto;  /* opcionalno, ako želite da se slika proporcijalno skalira */
     }
     .navbar-brand {
@@ -761,8 +762,9 @@ width: 300px!important;
 
 @media screen and (max-width: 410px) {
     .navbar-brand img {
-        width: 75% !important;  /* ili 50px, zavisno od vaših potreba */
+        width: 45% !important;  /* ili 50px, zavisno od vaših potreba */
         height: auto;  /* opcionalno, ako želite da se slika proporcijalno skalira */
+        margin-left: 15px;
     }
     .navbar-brand {
 width: 230px!important;   
